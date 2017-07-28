@@ -31,12 +31,18 @@ fn main() {
             Ok(size) if size == 0 => break,
             Ok(_) => {
                 if args.flag_decode {
-                    std::io::stdout().write(percent_decode(buf.as_bytes()).decode_utf8().unwrap().as_bytes()).unwrap();
+                    std::io::stdout()
+                        .write(percent_decode(buf.as_bytes()).decode_utf8().unwrap().as_bytes())
+                        .unwrap();
                 } else {
-                    std::io::stdout().write(percent_encode(buf.as_bytes(), DEFAULT_ENCODE_SET).to_string().as_bytes()).unwrap();
+                    std::io::stdout()
+                        .write(percent_encode(buf.as_bytes(), DEFAULT_ENCODE_SET)
+                            .to_string()
+                            .as_bytes())
+                        .unwrap();
                 }
-            },
-            Err(t) => panic!(t)
+            }
+            Err(t) => panic!(t),
         }
     }
 }
