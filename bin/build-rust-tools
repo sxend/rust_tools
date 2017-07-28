@@ -2,4 +2,4 @@
 
 cd `dirname ${0}`/../
 
-cargo install
+cargo install --force
